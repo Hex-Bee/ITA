@@ -51,7 +51,7 @@ function setup() {
     height / 2 - connectButton.height / 2
   );
   connectButton.style("background-color", color(65));
-  connectButton.style("font-size", "27px");
+  connectButton.style("font-size", "35px");
   connectButton.mousePressed(connectToBle);
 }
 
