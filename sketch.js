@@ -1,7 +1,8 @@
 // The serviceUuid must match the serviceUuid of the device you would like to connect
-const serviceUuid = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+const serviceUuid = "4fcafc201-1fb5-459e-8fcc-c5c9c331914b";
 let myCharacteristicRead;
-let myCharacteristicWrite;
+let myCharacteristicWrite1;
+let myCharacteristicWrite2;
 let myValue = 0;
 let myValueSaved = 0;
 let myBLE;
@@ -51,10 +52,9 @@ function setup() {
     height / 2 - connectButton.height / 2
   );
   connectButton.style("background-color", color(65));
-  connectButton.style("font-size", "35px");
+  connectButton.style("font-size", "27px");
   connectButton.mousePressed(connectToBle);
-}          
-
+}
 
 function connectToBle() {
   // Connect to a device by passing the service UUID
@@ -66,8 +66,9 @@ function connectToBle() {
 function gotCharacteristics(error, characteristics) {
   if (error) console.log("error: ", error);
   console.log("characteristics: ", characteristics);
-  myCharacteristicWrite = characteristics[0];
-  myCharacteristicRead = characteristics[1];
+  myCharacteristicWrite1 = characteristics[1];
+  myCharacteristicWrite2 = characteristics[0];
+  myCharacteristicRead = characteristics[2];
   // Read the value of the first characteristic
   myBLE.read(myCharacteristicRead, gotValue);
 }
@@ -155,9 +156,9 @@ function draw() {
           
           let comandoSend = JSON.stringify(Command1);
 
-          for(let veces = 0; veces < 500; veces++) {
+          for(let veces = 0; veces < 300; veces++) {
             
-      myBLE.write(myCharacteristicWrite, comandoSend);
+      myBLE.write(myCharacteristicWrite1, comandoSend);
          
             
           }
@@ -210,9 +211,9 @@ function draw() {
           
                     let comandoSend = JSON.stringify(Command2);
           
-      for(let veces = 0; veces < 500; veces++) {
+      for(let veces = 0; veces < 300; veces++) {
           
-      myBLE.write(myCharacteristicWrite, comandoSend);
+      myBLE.write(myCharacteristicWrite2, comandoSend);
           
         }
           
@@ -398,4 +399,3 @@ function mousePressed() {
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
 }
-          
