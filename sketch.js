@@ -53,7 +53,8 @@ function setup() {
   connectButton.style("background-color", color(65));
   connectButton.style("font-size", "35px");
   connectButton.mousePressed(connectToBle);
-}
+}          
+
 
 function connectToBle() {
   // Connect to a device by passing the service UUID
@@ -397,3 +398,4 @@ function mousePressed() {
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
 }
+          
