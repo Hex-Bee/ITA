@@ -154,7 +154,7 @@ function draw() {
           
           let comandoSend = JSON.stringify(Command1);
 
-          for(let veces = 0; veces < 300; veces++) {
+          for(let veces = 0; veces < 500; veces++) {
             
       myBLE.write(myCharacteristicWrite, comandoSend);
          
@@ -209,7 +209,7 @@ function draw() {
           
                     let comandoSend = JSON.stringify(Command2);
           
-      for(let veces = 0; veces < 300; veces++) {
+      for(let veces = 0; veces < 500; veces++) {
           
       myBLE.write(myCharacteristicWrite, comandoSend);
           
